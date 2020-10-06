@@ -17,6 +17,6 @@ void MergeSort(std::vector<std::string> &vec);
 // last element of the right-hand sub-vector.
 // Hint: MergeSort (with a single parameter, the vector to be sorted) makes a single call to its helper function.
 
-void MergeHelper(std::vector<std::string> &v, int l, int m, int r);
+void MergeHelper(std::vector<std::string> &v, std::vector<std::string> left, std::vector<std::string> right, int l, int r);
 
 #endif /* __HW5_H__ */

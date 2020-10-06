@@ -3,23 +3,38 @@
 #include "hw5.h"
 
 //void InsertHelper(std::vector<int> &vec, int n);
-
+/*
+* Pseudocode
+* if empty vector
+* return
+* for j=0 to size-1
+* for i=0 to size-1
+* if vec[i] < vec[i+1]
+* swap vec[i], vec[i+1]
+*/
 void BubbleSort(std::vector<std::string> &vec)
 {
   if(vec.empty())
     return;
   
-  bool swapped = true;
   for(int j = 0; j < vec.size()-1; j++)
     for(int i = 0; i < vec.size()-1; i++)
       if(vec[i].compare(vec[i+1]) > 0)
         swap(vec[i], vec[i+1]);
 }
 
+/*
+* Pseudocode
+* if n <= 1
+* return
+* recursively call insertion sort on v and n-1
+* while j >= 0 and v at j > last
+* set v[j+1] = v[j]
+* decrement j
+* outside while set v[j+1] = last
+*/
 void InsertionSort(std::vector<int> &v, int n)
 {
-  //InsertHelper(v, v.size());
-  
   if(n <= 1)
     return;
 
@@ -36,79 +51,60 @@ void InsertionSort(std::vector<int> &v, int n)
   v[j+1] = last;
 }
 
-/*void InsertHelper(std::vector<int> &vec, int n)
-{
-  if(n <= 1)
-    return;
-
-  InsertHelper(vec, n-1);
-
-  int last = vec[n-1];
-  int j = n-2;
-
-  while(j >= 0 && vec[j] > last)
-  {
-    vec[j+1] = vec[j];
-    j--;
-  }
-  vec[j+1] = last;
-}*/
-
+/*
+* Pseudocode
+* split vector in 2 vectors
+* populate 2 vectors with contents of original
+* if l < r
+* recursively split each vector in half
+* merge back together
+*/
 void MergeSort(std::vector<std::string> &vec)
 {
-  /*int l = 0;
+  int l = 0;
   int r = vec.size();
+
+  std::vector<std::string> left;
+  for(int i = 0; i < (r-l)/2; i++)
+    left.push_back(vec[i]);
+  std::vector<std::string> right;
+  for(int i = (r-l)/2+1; i < r; i++)
+    right.push_back(vec[i]);
 
   if (l < r)
   { 
-    int m = l + (r - l) / 2; 
-  
-    MergeSort(vec, l, m); 
-    MergeSort(vec, m + 1, r); 
-  
-    merge(arr, l, m, r); 
-  } */
+    MergeSort(left);
+    MergeSort(right); 
+    MergeHelper(vec, left, right, l, r); 
+  } 
 }
 
-void MergeHelper(std::vector<std::string> &v, int l, int m, int r)
-{
-  /*int n1 = m - l + 1; 
-  int n2 = r - m; 
-  std::string L[n1], R[n2]; 
-  
-  for (int i = 0; i < n1; i++) 
-    L[i] = v[l + i]; 
-  for (int j = 0; j < n2; j++) 
-    R[j] = v[m + 1 + j]; 
-  
-  int i = 0;
-  int j = 0;
+/*
+* Pseudocode
+* while li < left size and ri < right size
+* if word in left array at li < word in right 
+* array at ri
+* insert left into origianl vector increment li
+* else insert right into original vector 
+* increment ri
+*/
+void MergeHelper(std::vector<std::string> &v, std::vector<std::string> left, std::vector<std::string> right, int l, int r)
+{ 
+  int li = 0;
+  int ri = 0;
   int k = l;
-
-  while (i < n1 && j < n2)
-  { 
-    if (L[i] <= R[j])
-    { 
-        v[k] = L[i]; 
-        i++; 
-    } 
-    else 
-    { 
-      v[k] = R[j]; 
-      j++; 
-    } 
-      k++; 
-  } 
-  
-    while (i < n1) { 
-        v[k] = L[i]; 
-        i++; 
-        k++; 
+  while(li < left.size() && ri < right.size())
+  {
+    if(left[li].compare(right[ri]) < 0)
+    {  
+      v[k] = left[li];
+      li++;
     }
-  
-    while (j < n2) { 
-        v[k] = R[j]; 
-        j++; 
-        k++; 
-    }*/
+    else
+    {
+      v[k] = right[ri];
+      ri++;
+    }
+    k++;
+  }
 }
