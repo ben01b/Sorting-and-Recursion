@@ -2,7 +2,7 @@
 #include <vector>
 #include "hw5.h"
 
-void InsertHelper(std::vector<int> &vec, int n);
+//void InsertHelper(std::vector<int> &vec, int n);
 
 void BubbleSort(std::vector<std::string> &vec)
 {
@@ -16,10 +16,24 @@ void BubbleSort(std::vector<std::string> &vec)
         swap(vec[i], vec[i+1]);
 }
 
-void InsertionSort(std::vector<int> &v)
+void InsertionSort(std::vector<int> &v, int n)
 {
   //InsertHelper(v, v.size());
-  return;
+  
+  if(n <= 1)
+    return;
+
+  InsertionSort(v, n-1);
+
+  int last = v[n-1];
+  int j = n-2;
+
+  while(j >= 0 && v[j] > last)
+  {
+    v[j+1] = v[j];
+    j--;
+  }
+  v[j+1] = last;
 }
 
 /*void InsertHelper(std::vector<int> &vec, int n)
