@@ -2,6 +2,8 @@
 #include <vector>
 #include "hw5.h"
 
+void InsertHelper(std::vector<int> &vec, int n);
+
 void BubbleSort(std::vector<std::string> &vec)
 {
   bool swapped = true;
