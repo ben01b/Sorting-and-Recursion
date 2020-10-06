@@ -6,6 +6,9 @@ void InsertHelper(std::vector<int> &vec, int n);
 
 void BubbleSort(std::vector<std::string> &vec)
 {
+  if(vec.empty())
+    return;
+  
   bool swapped = true;
   for(int j = 0; j < vec.size()-1; j++)
     for(int i = 0; i < vec.size()-1; i++)
