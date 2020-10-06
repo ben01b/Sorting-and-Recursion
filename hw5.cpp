@@ -2,7 +2,6 @@
 #include <vector>
 #include "hw5.h"
 
-//void InsertHelper(std::vector<int> &vec, int n);
 /*
 * Pseudocode
 * if empty vector
@@ -53,34 +52,6 @@ void InsertionSort(std::vector<int> &v, int n)
 
 /*
 * Pseudocode
-* split vector in 2 vectors
-* populate 2 vectors with contents of original
-* if l < r
-* recursively split each vector in half
-* merge back together
-*/
-void MergeSort(std::vector<std::string> &vec)
-{
-  int l = 0;
-  int r = vec.size();
-
-  std::vector<std::string> left;
-  for(int i = 0; i < (r-l)/2; i++)
-    left.push_back(vec[i]);
-  std::vector<std::string> right;
-  for(int i = (r-l)/2+1; i < r; i++)
-    right.push_back(vec[i]);
-
-  if (l < r)
-  { 
-    MergeSort(left);
-    MergeSort(right); 
-    MergeHelper(vec, left, right, l, r); 
-  } 
-}
-
-/*
-* Pseudocode
 * while li < left size and ri < right size
 * if word in left array at li < word in right 
 * array at ri
@@ -107,4 +78,32 @@ void MergeHelper(std::vector<std::string> &v, std::vector<std::string> left, std
     }
     k++;
   }
+}
+
+/*
+* Pseudocode
+* split vector in 2 vectors
+* populate 2 vectors with contents of original
+* if l < r
+* recursively split each vector in half
+* merge back together
+*/
+void MergeSort(std::vector<std::string> &vec)
+{
+  int l = 0;
+  int r = vec.size();
+
+  std::vector<std::string> left;
+  for(int i = 0; i < (r-l)/2; i++)
+    left.push_back(vec[i]);
+  std::vector<std::string> right;
+  for(int i = (r-l)/2+1; i < r; i++)
+    right.push_back(vec[i]);
+
+  if (l < r)
+  { 
+    MergeSort(left);
+    MergeSort(right); 
+    MergeHelper(vec, left, right, l, r); 
+  } 
 }

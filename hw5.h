@@ -10,13 +10,13 @@ void InsertionSort(std::vector<int>& v, int n);
 // For this problem, re-implement the Insertion Sort algorithm recursively.
 // Rather than use a loop to go through each position we must insert into, use a recursive call. We want to insert the smallest element into the first position first and continue until we insert the largest element into the last position last. Remember that the last recursive call (the base case) finishes executing first and that the first recursive call finishes executing last.
 
+void MergeHelper(std::vector<std::string> &v, std::vector<std::string> left, std::vector<std::string> right, int l, int r);
+
 void MergeSort(std::vector<std::string> &vec);
 // Complete the functions to implement MergeSort on a vector of strings to sort it in alphabetical order.
 // Merge merges two already sorted sub-vectors: begin is the first element of the left-hand sub-vector; mid is the last
 // of the left-hand sub-vector (and therefore mid + 1 is the first element of the right-hand sub-vector); and end is the
 // last element of the right-hand sub-vector.
 // Hint: MergeSort (with a single parameter, the vector to be sorted) makes a single call to its helper function.
-
-void MergeHelper(std::vector<std::string> &v, std::vector<std::string> left, std::vector<std::string> right, int l, int r);
 
 #endif /* __HW5_H__ */
