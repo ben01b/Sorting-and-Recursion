@@ -15,10 +15,11 @@ void BubbleSort(std::vector<std::string> &vec)
 
 void InsertionSort(std::vector<int> &v)
 {
-  InsertHelper(v, v.size());
+  //InsertHelper(v, v.size());
+  return;
 }
 
-void InsertHelper(std::vector<int> &vec, int n)
+/*void InsertHelper(std::vector<int> &vec, int n)
 {
   if(n <= 1)
     return;
@@ -34,7 +35,7 @@ void InsertHelper(std::vector<int> &vec, int n)
     j--;
   }
   vec[j+1] = last;
-}
+}*/
 
 void MergeSort(std::vector<std::string> &vec)
 {
