@@ -36,7 +36,7 @@ void InsertHelper(std::vector<int> &vec, int n)
 
 void MergeSort(std::vector<std::string> &vec)
 {
-  int l = 0;
+  /*int l = 0;
   int r = vec.size();
 
   if (l < r)
@@ -47,12 +47,12 @@ void MergeSort(std::vector<std::string> &vec)
     MergeSort(vec, m + 1, r); 
   
     merge(arr, l, m, r); 
-  } 
+  } */
 }
 
 void MergeHelper(std::vector<std::string> &v, int l, int m, int r)
 {
-  int n1 = m - l + 1; 
+  /*int n1 = m - l + 1; 
   int n2 = r - m; 
   std::string L[n1], R[n2]; 
   
@@ -61,35 +61,34 @@ void MergeHelper(std::vector<std::string> &v, int l, int m, int r)
   for (int j = 0; j < n2; j++) 
     R[j] = v[m + 1 + j]; 
   
-    /* Merge the temp arrays back into arr[l..r]*/
-  int i = 0; // Initial index of first subarray 
-  int j = 0; // Initial index of second subarray 
-  int k = l; // Initial index of merged subarray 
-    while (i < n1 && j < n2) { 
-        if (L[i] <= R[j]) { 
-            v[k] = L[i]; 
-            i++; 
-        } 
-        else { 
-            v[k] = R[j]; 
-            j++; 
-        } 
-        k++; 
+  int i = 0;
+  int j = 0;
+  int k = l;
+
+  while (i < n1 && j < n2)
+  { 
+    if (L[i] <= R[j])
+    { 
+        v[k] = L[i]; 
+        i++; 
     } 
+    else 
+    { 
+      v[k] = R[j]; 
+      j++; 
+    } 
+      k++; 
+  } 
   
-    /* Copy the remaining elements of L[], if there 
-       are any */
     while (i < n1) { 
         v[k] = L[i]; 
         i++; 
         k++; 
-    } 
+    }
   
-    /* Copy the remaining elements of R[], if there 
-       are any */
     while (j < n2) { 
         v[k] = R[j]; 
         j++; 
         k++; 
-    } 
+    }*/
 }
